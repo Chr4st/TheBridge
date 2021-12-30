@@ -958,7 +958,7 @@ $api->getObjectiveName($p);
 	}
 
 
-	public function addItens($p, $v = true){
+	public function addItems($p, $v = true){
 		
 		$p->setGamemode(Player::SURVIVAL);
 		$p->setHealth($p->getMaxHealth());
