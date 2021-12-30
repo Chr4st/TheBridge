@@ -25,4 +25,3 @@ final class EntityManager
 		$human->spawnToAll();
 	}
 }
-?>
