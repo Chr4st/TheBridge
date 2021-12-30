@@ -1,6 +1,7 @@
+---
 name: TheBridge
 version: 1.0.0
-api: 4.0.0
+api: [3.0.0, 4.0.0]
 main: bridge\Main
 author: Dready 
 description: The Bridge Plugin
@@ -30,3 +31,4 @@ permissions:
         description: "Allows you use /tb leaderboard."
       tb.cmd.npc:
         description: "Allows you use /tb npc ."
+---
