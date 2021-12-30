@@ -1023,8 +1023,6 @@ $api->getObjectiveName($p);
 		if($this->hasHab($p, "tank")){
 			$peit = Item::get(311, 0, 1);
 		}
-
-
 		
 		$calc = Item::get(300, 0, 1);
 		
@@ -1035,123 +1033,6 @@ $api->getObjectiveName($p);
 		$p->getArmorInventory()->setLeggings($calc);
 		$p->getArmorInventory()->setBoots($bot);
 	}
-	
-	
-	public function getPontPos($p, $v = true){
-		$name = strtolower($p->getName());
-		$team = $this->getTeam($name);
-		
-		if(!is_null($team)){
-			switch($team){
-				case "blue":
-				if(!$v){
-					return $this->getPos1();
-				}
-				$pos = $this->getPos2();
-				return $pos;
-				case "red":
-				if(!$v){
-					return $this->getPos2();
-				}
-				$pos = $this->getPos1();
-				return $pos;
-			}
-		}
-	}
-	
-	public function addPont($p){
-		$name = strtolower($p->getName());
-		
-		$team = $this->getTeam($name);
-		if(!is_null($team)){
-			if(isset($this->ponts[$team])){
-				if($this->ponts[$team] >= 5){
-					return true;
-				}
-				$this->ponts[$team]++;
-			}
-			$p->addTitle("§r§6" . $p->getName() ." §l§aSCORED!");
-			$msg = "§o§l§eT§6B§r§b " . $p->getName() . " §l§eSCORED§r§6 " . $this->ponts[$team];
-			$msg2 = " §4§lRED§r §cHas Joined The Match";
-			switch($team){
-				case " blue":
-				$p->addTitle("§6" . $p->getName() ." §l§eSCORED!");
-				$msg = "§o§l§eT§6B§r§b " . $p->getName() . " §l§eSCORED§r§6 " . $this->ponts[$team];
-				$msg2 = " §l§bBLUE §r§bHas Joined The Match!";
-			}
-			$this->broadcast("$msg", 3);
-			if($this->ponts[$team] >= 5){
-				$players = $this->getPlayers();
-				foreach($players as $name => $pl){
-					$p = $this->plugin->getServer()->getPlayerExact($name);
-					if(is_null($p)){
-						unset($this->players[$name]);
-						continue;
-					}
-					$this->respawnPlayer($p, false);
-				}
-				$this->broadcast("$msg2\n§8\n§8\n§8\n", 2);
-				$this->segs = 10;
-				$this->stat = self::STAT_GANHO;
-				$p->addTitle("§l§6GAME FINISH!", "§7The game has ended!");
-				$this->addWin($team);
-				return true;
-			}
-		}
-		$this->replaceSpawn();
-		$this->teleportPlayers($this->getPlayers());
-		foreach($this->players as $name => $p){
-			if($this->getTeam($p) == $team){
-				if($this->hasHab($p, "Runner")){
-					$eff = Effect::getEffect(1);
-					$eff->setDuration(80*20);
-					$eff->setAmplifier(1);
-					
-					$p->addEffect($eff);
-				}
-			}
-		}
-		
-		$this->time = 6;
-		$this->stat = self::STAT_RESTART;
-	}
-	
-	public function getPont($team = "blue"){
-		if(!isset($this->ponts[$team])){
-			return 0;
-		}
-		return $this->ponts[$team];
-	}
-	
-	public function getTemp($time){
-		$seg = (int)($time % 60);
-		$time /= 60;
-		$min = (int)($time % 60);
-		$time /= 60;
-		$hora = (int)($time % 24);
-		if($seg < 10){
-			$seg = "0" . $seg;
-		}
-		if($min < 10){
-			$min = "0" . $min;
-		}
-		if($hora < 10){
-			$hora = "0" . $hora;
-		}
-		return "$min:$seg";
-	}
-	
-	public function isLoad($world){
-		if($this->getServer()->isLevelLoaded($world)){
-			return true;
-		}
-		if(!$this->getServer()->isLevelGenerated($world)){
-			return false;
-		}
-		$this->getServer()->loadLevel($world);
-		return $this->getServer()->isLevelLoaded($world);
-	}
-}
 	
 	public function getPontPos($p, $v = true){
 		$name = strtolower($p->getName());
