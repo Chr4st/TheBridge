@@ -1153,16 +1153,6 @@ $api->getObjectiveName($p);
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
 		$food2 = Item::get(322, 4, 5);
 		$block = Item::get(159, $damage, 64);
 		
@@ -1193,7 +1183,7 @@ $api->getObjectiveName($p);
 		$p->getArmorInventory()->setChestplate($peit);
 		$p->getArmorInventory()->setLeggings($calc);
 		$p->getArmorInventory()->setBoots($bot);
-	}
+	
 	
 	public function getPontPos($p, $v = true){
 		$name = strtolower($p->getName());
