@@ -1,0 +1,32 @@
+name: TheBridge
+version: 1.0.0
+api: 3.0.0
+main: bridge\Main
+author: Dready
+description: The Bridge Plugin
+commands:
+ tb:
+  description: "TheBridge Main Commands!"
+
+permissions:
+  tb.cmd:
+    description: "Allows you to use all TheBridge commands"
+    children:
+      tb.cmd.pos1:
+        description: "Allows you use /tb pos1 ."
+      tb.cmd.pos2:
+        description: "Allows you use /tb pos2 ."
+      tb.cmd.spawn1:
+        description: "Allows you use /tb spawn1 ."
+      tb.cmd.spawn2:
+        description: "Allows you use /tb spawn2 ."
+      tb.cmd.respawn1:
+        description: "Allows you use /tb respawn1 ."
+      tb.cmd.respawn2:
+        description: "Allows you use /tb respawn2 ."
+      tb.cmd.spawn:
+        description: "Allows you use /tb spawn ."
+      tb.cmd.leaderboard:
+        description: "Allows you use /tb leaderboard."
+      tb.cmd.npc:
+        description: "Allows you use /tb npc ."
