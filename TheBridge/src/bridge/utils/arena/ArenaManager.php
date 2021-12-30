@@ -1183,7 +1183,7 @@ $api->getObjectiveName($p);
 		$p->getArmorInventory()->setChestplate($peit);
 		$p->getArmorInventory()->setLeggings($calc);
 		$p->getArmorInventory()->setBoots($bot);
-	
+}
 	
 	public function getPontPos($p, $v = true){
 		$name = strtolower($p->getName());
