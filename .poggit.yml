@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Chr4st/TheBridge
+build-by-default: true
+branches:
+- main
+projects:
+  TheBridge v2.9.6:
+    path: TheBridge v2.9.6/
+...
