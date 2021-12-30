@@ -3,7 +3,7 @@ name: TheBridge
 version: 1.0.0
 api: 3.0.0
 main: bridge\Main
-author: Dready 
+author: Dready & Kostamax27
 description: The Bridge Plugin
 commands:
  tb:
