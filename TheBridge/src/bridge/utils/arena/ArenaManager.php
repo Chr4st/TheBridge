@@ -1152,38 +1152,6 @@ $api->getObjectiveName($p);
 		return $this->getServer()->isLevelLoaded($world);
 	}
 }
-
-		$food2 = Item::get(322, 4, 5);
-		$block = Item::get(159, $damage, 64);
-		
-		$inv->setItem(0, $esp);
-		$inv->setItem(2, $pic);
-		$p->setGamemode(Player::ADVENTURE);
-		$inv->setItem(1, $arco);
-		
-		$inv->setItem(3, $block);
-		$inv->setItem(4, $block);
-		$inv->setItem(5, $food2);
-		$inv->setItem(32, $flecha);
-		
-		$cap = Item::get(298, 0, 1);
-		
-		$peit = Item::get(299, 0, 1);
-		if($this->hasHab($p, "tank")){
-			$peit = Item::get(311, 0, 1);
-		}
-
-
-		
-		$calc = Item::get(300, 0, 1);
-		
-		$bot = Item::get(301, 0, 1);
-		
-		$p->getArmorInventory()->setHelmet($cap);
-		$p->getArmorInventory()->setChestplate($peit);
-		$p->getArmorInventory()->setLeggings($calc);
-		$p->getArmorInventory()->setBoots($bot);
-}
 	
 	public function getPontPos($p, $v = true){
 		$name = strtolower($p->getName());
