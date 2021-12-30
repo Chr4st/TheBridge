@@ -2,7 +2,7 @@ name: TheBridge
 version: 1.0.0
 api: 4.0.0
 main: bridge\Main
-author: Dready and other Avail Devs
+author: Dready 
 description: The Bridge Plugin
 commands:
  tb:
