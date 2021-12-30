@@ -4,5 +4,5 @@ branches:
 - main
 projects:
   TheBridge v2.9.6:
-    path: TheBridge v2.9.6/
+    path: TheBridge/
 ...
