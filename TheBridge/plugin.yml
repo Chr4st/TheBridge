@@ -3,7 +3,7 @@ version: 1.0.0
 api: [3.0.0, 4.0.0]
 main: bridge\Main
 author: Dready
-description: The Bridge Plugin
+description: The Bridge Plugin (currently trying to support api v4)
 commands:
  tb:
   description: "TheBridge Main Commands!"
