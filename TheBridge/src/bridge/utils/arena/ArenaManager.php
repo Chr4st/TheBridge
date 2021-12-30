@@ -960,7 +960,7 @@ $api->getObjectiveName($p);
 
 	public function addItems($p, $v = true){
 		
-		$p->setGamemode(Player::SURVIVAL);
+		$p->setGamemode(Player::ADVENTURE);
 		$p->setHealth($p->getMaxHealth());
 		$p->setFood(20);
 		
@@ -969,7 +969,7 @@ $api->getObjectiveName($p);
 			$inv = $p->getInventory();
 			$inv->clearAll();
 			
-			$inv->setItem(7, Item::get(355, 0, 1)->setCustomName("§r§cTap To Leave\n§7 (Click To Leave)"));
+			$inv->setItem(7, Item::get(355, 0, 1)->setCustomName("§cTap To Leave\n"));
 			return true;
 		}
 		
@@ -988,28 +988,46 @@ $api->getObjectiveName($p);
 			}
 		}
 			
+			$inv = $p->getInventory();
+		$inv->clearAll();
+		
+		$esp = Item::get(267, 0, 1);
+		if($this->hasHab($p, "matador")){
+			$esp = Item::get(276, 0, 1);
 		}
+		$pic = Item::get(278, 0, 1);
+
+			$pic = Item::get(278, 0, 1);
+			$effenchant = Enchantment::getEnchantment(15);
+			$effenchantins = new EnchantmentInstance($effenchant);
+			$effenchantins->setLevel(2);
+			$pic->addEnchantment($effenchantins);
+
 	
 		$arco = Item::get(261, 0, 1);
-		$flecha = Item::get(262, 0, 8);
-		$food = Item::get(364, 0, 5);
-		$food2 = Item::get(322, 0, 2);
+		$flecha = Item::get(262, 0, 64);
+		$food2 = Item::get(322, 4, 5);
 		$block = Item::get(159, $damage, 64);
 		
 		$inv->setItem(0, $esp);
-		$inv->setItem(1, $pic);
-		$inv->setItem(2, $arco);
+		$inv->setItem(2, $pic);
+		$p->setGamemode(Player::ADVENTURE);
+		$inv->setItem(1, $arco);
 		
 		$inv->setItem(3, $block);
 		$inv->setItem(4, $block);
-		$inv->setItem(6, $food2);
-		$inv->setItem(7, $food);
+		$inv->setItem(5, $food2);
 		$inv->setItem(32, $flecha);
 		
 		$cap = Item::get(298, 0, 1);
 		
 		$peit = Item::get(299, 0, 1);
+		if($this->hasHab($p, "tank")){
+			$peit = Item::get(311, 0, 1);
+		}
 
+
+		
 		$calc = Item::get(300, 0, 1);
 		
 		$bot = Item::get(301, 0, 1);
@@ -1019,6 +1037,7 @@ $api->getObjectiveName($p);
 		$p->getArmorInventory()->setLeggings($calc);
 		$p->getArmorInventory()->setBoots($bot);
 	}
+	
 	
 	public function getPontPos($p, $v = true){
 		$name = strtolower($p->getName());
