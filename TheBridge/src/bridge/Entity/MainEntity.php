@@ -11,4 +11,3 @@ class MainEntity extends Human
 		return '';
 	}
 }
-?>
